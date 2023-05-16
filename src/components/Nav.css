@@ -4,3 +4,9 @@
 .Sign{
     color: white;
 }
+.sty1{
+    transition: transform 0.3s ease-in-out;
+}
+.sty1:hover{
+    transform: scale(1.2);
+}

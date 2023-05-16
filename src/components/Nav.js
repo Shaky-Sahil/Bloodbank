@@ -9,8 +9,8 @@ export default function Nav() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar color='error' position="static">
         <Toolbar>
-          <IconButton
-            size="large"
+          <IconButton className='sty1'
+            size="large" 
             edge="start"
             color="inherit"
             aria-label="menu"
