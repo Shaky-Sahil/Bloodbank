@@ -4,6 +4,7 @@
 }
 .Log:hover{
     background-color:black;
+    transform: scale(1.2);
 }
 .Sign{
     color: white;
@@ -11,6 +12,7 @@
 }
 .Sign:hover{
     background-color:black;
+    transform: scale(1.2);
 }
 
 .sty1 {
@@ -20,14 +22,5 @@
   
   .sty1:hover {
     transform: scale(1.2);
-  }
-  
-  .login-button, .signup-button {
-    /* Other styles */
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .login-button:hover, .signup-button:hover {
-    background-color: #FF0000; /* Change to your desired color */
   }
   
