@@ -1,0 +1,14 @@
+.req{
+    
+    text-align: center;
+    background-image: url("https://png.pngtree.com/thumb_back/fw800/back_our/20190619/ourmid/pngtree-geometric-gradient-creative-blood-donation-poster-background-material-image_134137.jpg");
+    min-width: 100vh;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 2% 0% 0% 0%;
+}
+
+#c{
+    margin-left: 50% ;
+}

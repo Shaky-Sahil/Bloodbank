@@ -1,0 +1,9 @@
+.SignUp{
+    background-image: url("./signupbg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 100vh;
+    height: 100vh;
+    padding: 2% 0% 0% 0%;
+    background-color: rgba(255, 0, 0, 0.5)
+}
