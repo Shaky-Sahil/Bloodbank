@@ -3,6 +3,7 @@ import AppBar from '@mui/material/AppBar';
 import { Box, Button, IconButton, Toolbar, Typography } from '@mui/material';
 import { Link } from 'react-router-dom'
 import BloodtypeIcon from '@mui/icons-material/Bloodtype';
+import { Person, PersonAdd } from '@mui/icons-material';
 import './Nav.css'
 export default function Nav() {
   return (
