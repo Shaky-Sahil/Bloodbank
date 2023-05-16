@@ -1,8 +1,16 @@
 .Log{
     color: white;
+    transition: background-color 0.3s ease-in-out;
+}
+.Log:hover{
+    background-color:cornsilk;
 }
 .Sign{
     color: white;
+    transition: background-color 0.3s ease-in-out;
+}
+.Sign:hover{
+    background-color: cornsilk;
 }
 
 .sty1 {
@@ -12,5 +20,14 @@
   
   .sty1:hover {
     transform: scale(1.2);
+  }
+  
+  .login-button, .signup-button {
+    /* Other styles */
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .login-button:hover, .signup-button:hover {
+    background-color: #FF0000; /* Change to your desired color */
   }
   
