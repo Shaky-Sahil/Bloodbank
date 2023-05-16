@@ -3,14 +3,14 @@
     transition: background-color 0.3s ease-in-out;
 }
 .Log:hover{
-    background-color:cornsilk;
+    background-color:black;
 }
 .Sign{
     color: white;
     transition: background-color 0.3s ease-in-out;
 }
 .Sign:hover{
-    background-color: cornsilk;
+    background-color:black;
 }
 
 .sty1 {
