@@ -6,10 +6,11 @@
 }
 
 .sty1 {
+    transform: scale(1);
     transition: transform 0.3s ease-in-out;
   }
   
   .sty1:hover {
-    transform: rotate(360deg);
+    transform: scale(1.2);
   }
   
