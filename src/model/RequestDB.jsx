@@ -9,11 +9,11 @@ var requestSchema = new  Schema({
     requestAge:Number,
     requestEmail:String,
     requestPhone:Number,
-    requestBlood:String
+    requestBlood:String,
     requestAilment:String,
     requestUnit:Number
 });
 //4.Set up collections
-mongoose.model("request",userSchema)
+mongoose.model("request",requestSchema)
 //5.Exporting
 module.exports=RequestInfo;
