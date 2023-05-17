@@ -23,7 +23,6 @@ export default function Nav() {
           </Typography>
           <Link to={'/Login'} className='Log'><Button color='error' variant="filled" sx={{textDecoration:'none'}}>Login</Button></Link>
           <Link to={'/SignUp'} className='Sign'><Button color='error' variant='filled'>SignUp</Button></Link>
-         
         </Toolbar>
       </AppBar>
     </Box>
