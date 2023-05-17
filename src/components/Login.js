@@ -61,7 +61,7 @@ export default function Login() {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-            <Button
+            <Button className='button'
               type="submit"
               fullWidth
               variant="contained"
