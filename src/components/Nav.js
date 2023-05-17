@@ -20,7 +20,7 @@ export default function Nav() {
          <BloodtypeIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Dashboard
+            Blood Bank Management System
           </Typography>
           <Link to={'/Login'} className='Log'><Button color='error' variant="filled" sx={{textDecoration:'none'}} startIcon={<Person />}>Login</Button></Link>
           <Link to={'/SignUp'} className='Sign'><Button color='error' variant='filled' startIcon={<PersonAdd />}>SignUp</Button></Link>
