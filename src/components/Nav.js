@@ -4,6 +4,7 @@ import { Box, Button, IconButton, Toolbar, Typography } from '@mui/material';
 import { Link } from 'react-router-dom'
 import BloodtypeIcon from '@mui/icons-material/Bloodtype';
 import './Nav.css'
+import { Person, PersonAdd } from '@mui/icons-material';
 export default function Nav() {
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -21,8 +22,8 @@ export default function Nav() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Dashboard
           </Typography>
-          <Link to={'/Login'} className='Log'><Button color='error' variant="filled" sx={{textDecoration:'none'}}>Login</Button></Link>
-          <Link to={'/SignUp'} className='Sign'><Button color='error' variant='filled'>SignUp</Button></Link>
+          <Link to={'/Login'} className='Log'><Button color='error' variant="filled" sx={{textDecoration:'none'}} startIcon={<Person />}>Login</Button></Link>
+          <Link to={'/SignUp'} className='Sign'><Button color='error' variant='filled' startIcon={<PersonAdd />}>SignUp</Button></Link>
         </Toolbar>
       </AppBar>
     </Box>
