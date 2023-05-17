@@ -47,7 +47,7 @@ export default function Login() {
               autoComplete="user"
               autoFocus
             />
-            <TextField
+            <TextField className='TextField-error'
               margin="normal"
               required
               fullWidth
