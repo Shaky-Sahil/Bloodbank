@@ -42,8 +42,8 @@ export default function Login() {
               required
               fullWidth
               id="user"
-              label="UserID"
-              name="user"
+              label="Email"
+              name="userEmail"
               autoComplete="user"
               autoFocus
             />
@@ -51,7 +51,7 @@ export default function Login() {
               margin="normal"
               required
               fullWidth
-              name="password"
+              name="userPassword"
               label="Password"
               type="password"
               id="password"

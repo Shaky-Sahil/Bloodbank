@@ -1,6 +1,6 @@
 .bg-container{
     background-image: url("bbbb.jpg");
-    
+    background-size: cover;
     background-repeat: no-repeat;
     height: 400vh;
     width: 99vw;
