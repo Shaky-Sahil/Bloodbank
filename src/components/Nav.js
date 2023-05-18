@@ -3,6 +3,7 @@ import AppBar from '@mui/material/AppBar';
 import { Box, Button, IconButton, Toolbar, Typography } from '@mui/material';
 
 
+
 export default function Nav() {
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -19,10 +20,10 @@ export default function Nav() {
           </IconButton>
           <Button color='error' variant='contained'>HOME</Button>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Dashboard
+            
           </Typography>
           <Button color='error' variant="contained">Login</Button>
-          <Button color='error' variant='contained'>Signup</Button>
+          <Button color='error' variant='contained'>SignUp</Button>
          
         </Toolbar>
       </AppBar>
