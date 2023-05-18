@@ -16,6 +16,7 @@ const theme = createTheme();
 
   return (
     <div className='SignUp'>
+      
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs" sx={{opacity:1.0}}>
     
