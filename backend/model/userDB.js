@@ -13,6 +13,6 @@ var userSchema = new  Schema({
     userPassword:String
 });
 //4.Set up collections
-mongoose.model("user",userSchema)
+UserInfo = mongoose.model("user",userSchema)
 //5.Exporting
 module.exports=UserInfo;
