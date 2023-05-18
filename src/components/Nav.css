@@ -4,7 +4,7 @@
 }
 .Log:hover{
     background-color:black;
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 .Sign{
     color: white;
@@ -12,7 +12,7 @@
 }
 .Sign:hover{
     background-color:black;
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .sty1 {

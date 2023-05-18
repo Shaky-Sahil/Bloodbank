@@ -37,7 +37,7 @@ export default function Login() {
             Login
           </Typography>
           <Box component="form" noValidate sx={{ mt: 1 }}>
-            <TextField
+            <TextField className='TextField-error'
               margin="normal"
               required
               fullWidth
@@ -47,7 +47,7 @@ export default function Login() {
               autoComplete="user"
               autoFocus
             />
-            <TextField
+            <TextField className='TextField-error'
               margin="normal"
               required
               fullWidth
@@ -61,7 +61,7 @@ export default function Login() {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-            <Button
+            <Button className='button'
               type="submit"
               fullWidth
               variant="contained"
