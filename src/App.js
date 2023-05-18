@@ -7,12 +7,23 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import Requestform from './components/Requestform'
 import Create from './components/Create'
+import {
+  BrowserRouter,
+  Route,
+  Routes
+} from 'react-router-dom';
+
 
 const App = () => {
   return (
     <div>
-      <Nav/>
-      <Home/>
+      <BrowserRouter>
+      <Routes>
+      <Route  path='/' element={<Home />}></Route>
+      <Route  path='/Login' element={<Login />}></Route>
+      <Route  path='/SignUp' element={<Signup />}></Route>
+      </Routes>
+      </BrowserRouter>
     </div>
   )
 }
