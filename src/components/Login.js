@@ -15,20 +15,26 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './SignUp.css'
 import { useForm } from 'react-hook-form';
 import { LineAxisOutlined } from '@mui/icons-material';
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 const theme = createTheme();
 
 
-const handleLogin = (data) => {
-  axios.post('http://localhost:5000/api/login',data).then((response)=>{
-    console.log(response)
-  })
-}
+
 
 
 export default function Login() {
 
   const {register, handleSubmit} = useForm()
+  const navigate = useNavigate()
+
+  const handleLogin = (data) => {
+    axios.post('http://localhost:5000/api/login',data).then((response)=>{
+      console.log(response)
+      localStorage.setItem("authenticated", true);
+      navigate("/dashboard");
+    })
+  }
 
   return (
     <div className='SignUp'>
