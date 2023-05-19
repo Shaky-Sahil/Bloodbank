@@ -3,9 +3,20 @@ require('dotenv').config()
 const userData = require("./model/userDB")
 const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
+const jwt = require('jsonwebtoken')
+
 
 
 const app = new express()
+
+const getTokenFrom = request => {
+    const authorization = request.get('authorization')
+    if (authorization && authorization.startsWith('Bearer ')) {
+      return authorization.replace('Bearer ', '')
+    }
+    return null
+  }
+  
 
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())

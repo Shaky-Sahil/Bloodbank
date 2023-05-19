@@ -7,7 +7,7 @@ const User = require('../model/userDB')
 loginRouter.post('/', async (request, response) => {
   const { email, password } = request.body
     console.log(email)
-  const user = await User.findOne()
+  const user = await User.findOne({ userEmail : email })
   console.log(`the user is ${user}`)
   console.log(`the password is ${user.userPassword}`)
   const passwordCorrect = user === null
