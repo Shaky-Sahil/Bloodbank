@@ -10,7 +10,8 @@ var userSchema = new  Schema({
     userGender:String,
     userAge:Number,
     userEmail:String,
-    userPassword:String
+    userPassword:String,
+    isAdmin:Boolean
 });
 //4.Set up collections
 UserInfo = mongoose.model("user",userSchema)

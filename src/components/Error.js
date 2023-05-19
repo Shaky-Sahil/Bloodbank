@@ -5,7 +5,7 @@ import { Typography } from '@mui/material'
 const Error = () => {
   return (
     <div className='Error'>
-        <Typography variant='h3'>Invalid Credentials</Typography>
+        <Typography variant='h3'>Admin dashboard</Typography>
     </div>
   )
 }

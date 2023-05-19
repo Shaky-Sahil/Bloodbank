@@ -4,10 +4,13 @@ import Avatar from '@mui/material/Avatar';
 import { deepOrange } from '@mui/material/colors'
 import generateUsers from '../Utilities/generateUsers.js';
 import Nav from './Nav.js';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Donorlist = () => {
      const [authenticated, setauthenticated] = useState(null);
     const [users,setUsers] = useState([])
+    const navigate = useNavigate()
     useEffect(()=>{
         setUsers(generateUsers())
         const loggedInUser = localStorage.getItem("authenticated");
@@ -35,7 +38,14 @@ const Donorlist = () => {
                             <Typography>Blood Group:A+</Typography>
                             <Typography>Email:{user.email}</Typography>
                             <Typography>Mobile Number:{user.mobile}</Typography>
-                            <Button className='btn' sx={{ width: 150, height: 25,bgcolor: '#b71c1c' }} variant='contained' color='warning'>Request</Button>
+                            <Button 
+                            className='btn'
+                            onClick={()=>{navigate("/request")}} 
+                            sx={{ width: 150, height: 25,bgcolor: '#b71c1c' }} 
+                            variant='contained' 
+                            color='warning'>
+                                request
+                             </Button>
                         </CardContent>
                     </Card>
                     </Grid>

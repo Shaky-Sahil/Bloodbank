@@ -31,9 +31,15 @@ export default function Login() {
 
   const handleLogin = (data) => {
     axios.post('http://localhost:5000/api/login',data).then((response)=>{
-      console.log(response)
+      console.log(response.data.user.isAdmin)
       localStorage.setItem("authenticated", true);
-      navigate("/dashboard");
+      if(response.data.user.isAdmin){
+        console.log("user is Admin")
+        navigate("/error")
+      }
+      else{
+        navigate("/dashboard");
+      }
     }).catch(()=>{
       toast.error('Invalid Credentials');
       console.log("something went wrong")
