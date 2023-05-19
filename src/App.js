@@ -12,6 +12,7 @@ import {
   Route,
   Routes
 } from 'react-router-dom';
+import Error from './components/Error'
 
 
 const App = () => {
@@ -23,6 +24,8 @@ const App = () => {
       <Route  path='/Login' element={<Login />}></Route>
       <Route  path='/SignUp' element={<Signup />}></Route>
       <Route path='/dashboard' element={<Donorlist/>}></Route>
+      <Route path='/dashboard' element={<Donorlist/>}></Route>
+      <Route path='/error' element={<Error/>}></Route>     
       </Routes>
       </BrowserRouter>
     </div>

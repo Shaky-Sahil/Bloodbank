@@ -33,6 +33,9 @@ export default function Login() {
       console.log(response)
       localStorage.setItem("authenticated", true);
       navigate("/dashboard");
+    }).catch(()=>{
+      console.log("something went wrong")
+      navigate("/error")
     })
   }
 
