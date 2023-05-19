@@ -16,15 +16,17 @@ const getTokenFrom = request => {
     }
     return null
   }
-  
+
 
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
+let cors = require('cors')
+app.use(cors())
+
+
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
 
-let cors = require('cors')
-app.use(cors())
 
 app.get('/',(request,response)=>{
     response.send("<h1>Bloodbank Api home</h1>")

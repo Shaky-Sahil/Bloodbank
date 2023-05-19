@@ -13,10 +13,22 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './SignUp.css'
+import { useForm } from 'react-hook-form';
+import { LineAxisOutlined } from '@mui/icons-material';
+import axios from 'axios';
 const theme = createTheme();
 
 
+const handleLogin = (data) => {
+  axios.post('http://localhost:5000/api/login',data).then((response)=>{
+    console.log(response)
+  })
+}
+
+
 export default function Login() {
+
+  const {register, handleSubmit} = useForm()
 
   return (
     <div className='SignUp'>
@@ -46,6 +58,7 @@ export default function Login() {
               name="userEmail"
               autoComplete="user"
               autoFocus
+              {...register("userEmail")}
             />
             <TextField className='TextField-error'
               margin="normal"
@@ -56,6 +69,7 @@ export default function Login() {
               type="password"
               id="password"
               autoComplete="current-password"
+              {...register("userPassword")}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -67,6 +81,7 @@ export default function Login() {
               variant="contained"
               color='error'
               sx={{ mt: 3, mb: 2 }}
+              onClick={handleSubmit(handleLogin)}
             >
               Log In
             </Button>
