@@ -33,12 +33,13 @@ app.get('/',(request,response)=>{
 })
 
 app.get('/users', async (req,res)=>{
-    let result = await UserInfo.find()
+    let result = await userData.find()
+    console.log("data fetched")
     res.json(result)
 })
 
 app.post('user/new',async (req,res)=>{
-    let user = new UserInfo(req.body)
+    let user = new userData(req.body)
    user.save()
    res.send(req.body)
 })
