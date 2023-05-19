@@ -6,6 +6,7 @@ import generateUsers from '../Utilities/generateUsers.js';
 import Nav from './Nav.js';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import Logoutbar from './Logoutbar.jsx';
 
 const Donorlist = () => {
      const [authenticated, setauthenticated] = useState(null);
@@ -26,7 +27,7 @@ const Donorlist = () => {
     else{
         return (
             <div className='cont'>
-                <Nav/>
+                <Logoutbar/>
                 {console.log(users)}
                 <Grid container>
                 {users.map((user,i)=>(
