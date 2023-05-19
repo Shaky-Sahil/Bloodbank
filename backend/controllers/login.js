@@ -7,6 +7,7 @@ const User = require('../model/userDB')
 loginRouter.post('/', async (request, response) => {
   const { userEmail, userPassword } = request.body
     console.log(userEmail)
+  try{
   const user = await User.findOne({ userEmail : userEmail })
   console.log(`the user is ${user}`)
   console.log(`the password is ${user.userPassword}`)
@@ -31,6 +32,10 @@ loginRouter.post('/', async (request, response) => {
   response
     .status(200)
     .send({ token, username: user.username, name: user.name })
+    }
+    catch(err){
+      console.log(error)
+    }
 })
 
 module.exports = loginRouter

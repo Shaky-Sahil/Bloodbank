@@ -35,7 +35,7 @@ const Donorlist = () => {
                             <Typography>Blood Group:A+</Typography>
                             <Typography>Email:{user.email}</Typography>
                             <Typography>Mobile Number:{user.mobile}</Typography>
-                            <Button className='btn' sx={{ width: 150, height: 25,bgcolor: '#b71c1c' }} variant='contained'>View More</Button>
+                            <Button className='btn' sx={{ width: 150, height: 25,bgcolor: '#b71c1c' }} variant='contained' color='warning'>Request</Button>
                         </CardContent>
                     </Card>
                     </Grid>

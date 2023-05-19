@@ -10,9 +10,26 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './SignUp.css'
+import { useForm } from 'react-hook-form';
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
 const theme = createTheme();
 
  function Signup() {
+  const {register, handleSubmit} = useForm()
+  const navigate = useNavigate()
+
+  const handleSignup = (data) => {
+    axios.post('http://localhost:5000/api/users',data).then((response)=>{
+      console.log(response)
+      navigate("/Login");
+    }).catch(()=>{
+      toast.error('Invalid Data');
+      console.log("something went wrong")
+      navigate("/SignUp")
+    })
+  }
 
   return (
     <div className='SignUp'>
@@ -39,12 +56,13 @@ const theme = createTheme();
               <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
-                  name="firstName"
+                  name="userfName"
                   required
                   fullWidth
                   id="firstName"
                   label="First Name"
                   autoFocus
+                  {...register("userfName")}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -53,8 +71,9 @@ const theme = createTheme();
                   fullWidth
                   id="lastName"
                   label="Last Name"
-                  name="lastName"
+                  name="userlName"
                   autoComplete="family-name"
+                  {...register("userlName")}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -63,6 +82,7 @@ const theme = createTheme();
                   id="Gender"
                   label="Gender"
                   name="Gender"
+                  {...register("userGender")}
                 />
                 </Grid>
                    <Grid item xs={12} sm={6}>
@@ -72,6 +92,7 @@ const theme = createTheme();
                   id="Age"
                   label="Age"
                   name="Age"
+                  {...register("userAge")}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -82,6 +103,7 @@ const theme = createTheme();
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  {...register("userEmail")}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -93,6 +115,7 @@ const theme = createTheme();
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  {...register("userPassword")}
                 />
               </Grid>
       
@@ -103,9 +126,11 @@ const theme = createTheme();
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
               color='error'
+              onClick={handleSubmit(handleSignup)}
             >
               Sign Up
             </Button>
+            <Toaster/>
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link to={'/Login'}href="#" variant="body2">

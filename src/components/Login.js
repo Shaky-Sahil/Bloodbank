@@ -28,7 +28,6 @@ export default function Login() {
 
   const {register, handleSubmit} = useForm()
   const navigate = useNavigate()
-  let message = ''
 
   const handleLogin = (data) => {
     axios.post('http://localhost:5000/api/login',data).then((response)=>{
@@ -36,11 +35,12 @@ export default function Login() {
       localStorage.setItem("authenticated", true);
       navigate("/dashboard");
     }).catch(()=>{
+      toast.error('Invalid Credentials');
       console.log("something went wrong")
       navigate("/login")
-      toast.error('Invalid Credentials');
     })
   }
+  
 
   return (
     <div className='SignUp'>
