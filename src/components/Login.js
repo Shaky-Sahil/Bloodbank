@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './SignUp.css'
 import { useForm } from 'react-hook-form';
 import { LineAxisOutlined } from '@mui/icons-material';
+import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 const theme = createTheme();
@@ -27,6 +28,7 @@ export default function Login() {
 
   const {register, handleSubmit} = useForm()
   const navigate = useNavigate()
+  let message = ''
 
   const handleLogin = (data) => {
     axios.post('http://localhost:5000/api/login',data).then((response)=>{
@@ -35,7 +37,8 @@ export default function Login() {
       navigate("/dashboard");
     }).catch(()=>{
       console.log("something went wrong")
-      navigate("/error")
+      navigate("/login")
+      toast.error('Invalid Credentials');
     })
   }
 
@@ -94,6 +97,7 @@ export default function Login() {
             >
               Log In
             </Button>
+            <Toaster/>
             <Grid container>
               <Grid item xs>
               </Grid>
