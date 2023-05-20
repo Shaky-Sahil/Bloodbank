@@ -1,5 +1,5 @@
-.SignUp{
-    background-image: url("signbg.png");
+.Login{
+    background-image: url("loginbg.png");
     background-size: cover;
     background-repeat: no-repeat;
     min-width: 100vh;

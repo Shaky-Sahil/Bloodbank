@@ -12,7 +12,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import './SignUp.css'
+import './login.css'
 import { useForm } from 'react-hook-form';
 import { LineAxisOutlined } from '@mui/icons-material';
 import toast, { Toaster } from 'react-hot-toast';
@@ -55,7 +55,7 @@ export default function Login() {
   }
   if(!authenticated){
     return (
-      <div className='SignUp'>
+      <div className='Login'>
       <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
