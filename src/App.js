@@ -13,6 +13,7 @@ import {
   Routes
 } from 'react-router-dom';
 import Error from './components/Error'
+import Manageuser from './components/Manageuser'
 
 
 const App = () => {
@@ -26,6 +27,10 @@ const App = () => {
       <Route path='/dashboard' element={<Donorlist/>}></Route>
       <Route path='/error' element={<Error/>}></Route>
       <Route path='/request' element={<Requestform/>}></Route>       
+      <Route path='/manage/user' element={<Manageuser/>}></Route>   
+      <Route path='/admin/addDonor' element={<Adddonor/>}></Route>   
+      
+      
       </Routes>
       </BrowserRouter>
     </div>
