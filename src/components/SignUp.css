@@ -1,5 +1,5 @@
 .SignUp{
-    background-image: url("sign.png");
+    background-image: url("s.png");
     background-size: cover;
     background-repeat: no-repeat;
     min-width: 100vh;
@@ -39,4 +39,6 @@
       transform: scale(1);
     }
   }
-  
+  .Con{
+    background-color: rgba(252, 246, 249, 0.559);
+  }

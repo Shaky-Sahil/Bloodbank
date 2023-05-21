@@ -35,7 +35,7 @@ const theme = createTheme();
     <div className='SignUp'>
       
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs" sx={{opacity:1.0}}>
+      <Container component="main" maxWidth="xs" sx={{opacity:1.0}} className='Con'>
     
         <CssBaseline />
         <Box
