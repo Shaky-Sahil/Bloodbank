@@ -14,6 +14,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
+import { MenuItem } from '@mui/material';
 const theme = createTheme();
 
  function Signup() {
@@ -77,13 +78,18 @@ const theme = createTheme();
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  id="Gender"
-                  label="Gender"
-                  name="Gender"
-                  {...register("userGender")}
-                />
+              <TextField
+                    select
+                    fullWidth
+                    id='gender'
+                    label='Gender'
+                    name='gender'
+                    {...register('gender')}
+                  >
+                    <MenuItem value='male'>Male</MenuItem>
+                    <MenuItem value='female'>Female</MenuItem>
+                    <MenuItem value='other'>Other</MenuItem>
+                  </TextField>
                 </Grid>
                    <Grid item xs={12} sm={6}>
                 <TextField

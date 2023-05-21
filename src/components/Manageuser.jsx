@@ -7,20 +7,15 @@ import Nav from './Nav.js';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Logoutbar from './Logoutbar.jsx';
-import axios from 'axios';
 
-const Donorlist = () => {
+const Manageuser = () => {
      const [authenticated, setauthenticated] = useState(null);
     const [users,setUsers] = useState([])
     const navigate = useNavigate()
     useEffect(()=>{
         setUsers(generateUsers())
-        console.log(`the users are ${users}`)
         const loggedInUser = localStorage.getItem("authenticated");
         setauthenticated(loggedInUser)
-        axios.get('http://localhost:5000/users').then((response)=>{
-            console.log(response.data)
-        })
     },[])
     if(!authenticated){
         return(
@@ -45,12 +40,18 @@ const Donorlist = () => {
                             <Typography>Email:{user.email}</Typography>
                             <Typography>Mobile Number:{user.mobile}</Typography>
                             <Button 
-                            className='btn'
-                            onClick={()=>{navigate("/request")}} 
+                            className='btn' 
                             sx={{ width: 150, height: 25,bgcolor: '#b71c1c' }} 
                             variant='contained' 
                             color='warning'>
-                                request
+                                Update
+                             </Button>
+                             <Button 
+                            className='btn' 
+                            sx={{ width: 150, height: 25,bgcolor: '#b71c1c',marginLeft:2 }} 
+                            variant='contained' 
+                            color='warning'>
+                                Delete
                              </Button>
                         </CardContent>
                     </Card>
@@ -64,4 +65,4 @@ const Donorlist = () => {
   
 }
 
-export default Donorlist
+export default Manageuser
