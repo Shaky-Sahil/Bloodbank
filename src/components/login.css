@@ -1,5 +1,5 @@
 .Login{
-    background-image: url("log.png");
+    background-image: url("lg.png");
     background-size: cover;
     background-repeat: no-repeat;
     min-width: 100vh;
@@ -39,4 +39,6 @@
       transform: scale(1);
     }
   }
-  
+ .Con{
+  background-color: rgba(248, 239, 244, 0.367);
+ } 
