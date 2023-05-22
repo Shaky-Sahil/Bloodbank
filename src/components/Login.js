@@ -110,7 +110,7 @@ export default function Login() {
               >
                 Log In
               </Button>
-              <Toaster/>
+              <Toaster position="bottom-left"/>
               <Grid container>
                 <Grid item xs>
                 </Grid>

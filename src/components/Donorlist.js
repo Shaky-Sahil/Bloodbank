@@ -11,7 +11,7 @@ import axios from 'axios';
 
 const Donorlist = () => {
      const [authenticated, setauthenticated] = useState(null);
-    const [users,setUsers] = useState([])
+    const [users,setUsers] = useState(null)
     const navigate = useNavigate()
     useEffect(()=>{
         setUsers(generateUsers())
@@ -20,12 +20,20 @@ const Donorlist = () => {
         setauthenticated(loggedInUser)
         axios.get('http://localhost:5000/users').then((response)=>{
             console.log(response.data)
+            console.log(users)
         })
     },[])
     if(!authenticated){
         return(
             <div>
                 log in to view dashboard
+            </div>
+        )
+    }
+    else if(users===null){
+        return(
+            <div>
+                no users
             </div>
         )
     }
@@ -40,10 +48,10 @@ const Donorlist = () => {
                     <Card sx={{bgcolor: '#ffebee',borderRadius:4,margin:1}}>
                         <CardContent>
                             <Avatar alt='avatar' src={user.avatar} sx={{ bgcolor: '#b71c1c',width:75,height:75}}>{user.name[0]}</Avatar>
-                            <Typography>Name:{user.name}</Typography>
+                            <Typography>Name:{user.userfName}</Typography>
                             <Typography>Blood Group:A+</Typography>
-                            <Typography>Email:{user.email}</Typography>
-                            <Typography>Mobile Number:{user.mobile}</Typography>
+                            <Typography>Email:{user.userEmail}</Typography>
+                            <Typography>Mobile Number:{user.userGender}</Typography>
                             <Button 
                             className='btn'
                             onClick={()=>{navigate("/request")}} 

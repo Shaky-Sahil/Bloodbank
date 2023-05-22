@@ -14,6 +14,6 @@ var requestSchema = new  Schema({
     requestUnit:Number
 });
 //4.Set up collections
-mongoose.model("request",requestSchema)
+RequestInfo = mongoose.model("request",requestSchema)
 //5.Exporting
 module.exports=RequestInfo;
