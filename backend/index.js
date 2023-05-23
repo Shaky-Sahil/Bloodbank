@@ -1,6 +1,7 @@
 const express = require('express')
 require('dotenv').config()
 const userData = require("./model/userDB")
+const requestData = require("./model/RequestDB")
 const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
 const jwt = require('jsonwebtoken')
@@ -35,8 +36,23 @@ app.get('/',(request,response)=>{
 app.get('/users', async (req,res)=>{
     let result = await userData.find()
     console.log("data fetched")
+    console.log(result)
     res.json(result)
 })
+
+app.get('/requests', async (req,res)=>{
+  let result = await requestData.find()
+  console.log("data fetched")
+  res.json(result)
+})
+
+app.post('request/new',async (req,res)=>{
+  let request = new requestData(req.body)
+ request.save()
+
+ res.send(req.body)
+})
+
 
 app.post('user/new',async (req,res)=>{
     let user = new userData(req.body)
