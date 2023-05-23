@@ -34,6 +34,9 @@ const Donorlist = () => {
             <div className='cont'>
                 <Logoutbar/>
                 {console.log(users)}
+                <center>
+                <Typography variant='h3'>BENEFACTORS</Typography>
+                </center>
                 <Grid container>
                 {users.map((user,i)=>(
                     <Grid item xs={4} key={i}>
