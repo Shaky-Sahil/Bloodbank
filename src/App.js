@@ -5,7 +5,7 @@ import Nav from './components/Nav'
 import Adddonor from './components/Adddonor'
 import Login from './components/Login'
 import Signup from './components/Signup'
-import Requestform from './components/Requestform'
+
 import Create from './components/Create'
 import {
   BrowserRouter,
@@ -14,6 +14,7 @@ import {
 } from 'react-router-dom';
 import Error from './components/Error'
 import Manageuser from './components/Manageuser'
+import Request from './components/Request'
 
 
 const App = () => {
@@ -26,7 +27,7 @@ const App = () => {
       <Route  path='/SignUp' element={<Signup />}></Route>
       <Route path='/dashboard' element={<Donorlist/>}></Route>
       <Route path='/error' element={<Error/>}></Route>
-      <Route path='/request' element={<Requestform/>}></Route>       
+      <Route path='/request' element={<Request/>}></Route>       
       <Route path='/manage/user' element={<Manageuser/>}></Route>   
       <Route path='/admin/addDonor' element={<Adddonor/>}></Route>   
       
