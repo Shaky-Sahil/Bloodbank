@@ -1,25 +1,36 @@
-import './Requestform.css'
-import {  Button, Card, CardActions, CardContent, MenuItem, TextField, Typography } from '@mui/material';
+import './Req.css';
+import {  Box, Button, Card, CardActions, CardContent, Container, MenuItem, TextField, Typography } from '@mui/material';
 import React from 'react'
 import { Select } from '@mui/material';
+import { Opacity } from '@mui/icons-material';
 
 
 
 
 
 
-const Requestform = () => {
+const Request = () => {
 
     
         
   return (
-    <div className='req'> 
-      <Card id='c' sx={{ minWidth: 275, height:700, width:600, marginLeft:50, marginTop:3 }}>
+    <div className='req'>
+        <Container component="main"  sx={{opacity:1.0,height:700,width:550}} className='Con'> 
+    {/* <Box 
+          sx={{
+            marginTop: 6,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        > */}
+      <Card sx={{ backgroundColor:'transparent'  , minWidth: 20, height:700, width:550, marginLeft:-3, marginTop:3 }} className='card' >
       <CardContent>
       
         <Typography sx={{ fontSize: 26, fontFamily:'cursive', textDecoration:'underline'}} color="brown" gutterBottom>
           Request Form
         </Typography>
+        <br/>
         <TextField required sx={{marginLeft:0, marginTop:4 }}variant="standard" label="Name" size="normal" />
         <TextField required sx={{marginLeft:-24, marginTop:12 }}variant="standard" label="Age" size="normal" />
         <TextField required sx={{marginLeft:-24, marginTop:20 }}variant="standard" label="Email ID" size="normal" type='email' />
@@ -52,9 +63,11 @@ const Requestform = () => {
         <Button variant='contained' sx={{marginLeft:30, marginTop:-3}}>Submit</Button>
       </CardActions>
     </Card>
+    {/* </Box> */}
+    </Container>
     
     </div>
   )
 }
 
-export default Requestform
+export default Request

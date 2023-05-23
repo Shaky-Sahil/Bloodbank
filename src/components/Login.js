@@ -56,7 +56,7 @@ export default function Login() {
   }
   if(!authenticated){
     return (
-      <div className='Login'>g
+      <div className='Login'>
       <ThemeProvider theme={theme}>
         <Container className='Con' component="main" maxWidth="xs">
           <CssBaseline />
