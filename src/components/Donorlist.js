@@ -14,7 +14,7 @@ const Donorlist = () => {
     const [users,setUsers] = useState(null)
     const navigate = useNavigate()
     useEffect(()=>{
-        dsetUsers(generateUsers())
+        setUsers(generateUsers())
         console.log(`the users are ${users}`)
         const loggedInUser = localStorage.getItem("authenticated");
         setauthenticated(loggedInUser)
