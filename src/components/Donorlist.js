@@ -14,7 +14,7 @@ const Donorlist = () => {
     const [users,setUsers] = useState(null)
     const navigate = useNavigate()
     useEffect(()=>{
-        setUsers(generateUsers())
+        dsetUsers(generateUsers())
         console.log(`the users are ${users}`)
         const loggedInUser = localStorage.getItem("authenticated");
         setauthenticated(loggedInUser)
@@ -51,10 +51,10 @@ const Donorlist = () => {
                     <Card sx={{bgcolor: '#ffebee',borderRadius:4,margin:1}}>
                         <CardContent>
                             <Avatar alt='avatar' src={user.avatar} sx={{ bgcolor: '#b71c1c',width:75,height:75}}>{user.name[0]}</Avatar>
-                            <Typography>Name:{user.userfName}</Typography>
+                            <Typography>Name:{user.name}</Typography>
                             <Typography>Blood Group:A+</Typography>
-                            <Typography>Email:{user.userEmail}</Typography>
-                            <Typography>Mobile Number:{user.userGender}</Typography>
+                            <Typography>Email:{user.email}</Typography>
+                            <Typography>Mobile Number:{user.mobile}</Typography>
                             <Button 
                             className='btn'
                             onClick={()=>{navigate("/request")}} 
