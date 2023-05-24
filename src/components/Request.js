@@ -3,6 +3,7 @@ import {  Box, Button, Card, CardActions, CardContent, Container, MenuItem, Text
 import React from 'react'
 import { Select } from '@mui/material';
 import { Opacity } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 
 
@@ -15,7 +16,14 @@ const Request = () => {
         
   return (
     <div className='req'>
-        <Container component="main"  sx={{opacity:1.0,height:700,width:550}} className='Con'> 
+      <Container sx={{height:35,width:550}} className='C'>
+      <Typography>Before filling the form.Please go through
+      </Typography>
+      <Link to={'/terms'}href="#" variant="body2">
+                  Terms and Policies
+                </Link>
+                </Container>
+        <Container component="main"  sx={{opacity:1.0,height:670,width:550}} className='Con'> 
     {/* <Box 
           sx={{
             marginTop: 6,
@@ -26,15 +34,16 @@ const Request = () => {
         > */}
       <Card sx={{ backgroundColor:'transparent'  , minWidth: 20, height:700, width:550, marginLeft:-3, marginTop:3 }} className='card' >
       <CardContent>
-      
+      <center>
+        <br/>
         <Typography sx={{ fontSize: 26, fontFamily:'cursive', textDecoration:'underline'}} color="brown" gutterBottom>
           Request Form
         </Typography>
-        <br/>
-        <TextField required sx={{marginLeft:0, marginTop:4 }}variant="standard" label="Name" size="normal" />
-        <TextField required sx={{marginLeft:-24, marginTop:12 }}variant="standard" label="Age" size="normal" />
-        <TextField required sx={{marginLeft:-24, marginTop:20 }}variant="standard" label="Email ID" size="normal" type='email' />
-        <TextField required sx={{marginLeft:-24, marginTop:28 }}variant="standard" label="Phone No" size="normal"  />
+        
+        <TextField required sx={{marginLeft:-20, marginTop:4 }}variant="standard" label="Name" size="normal" />
+        <TextField required sx={{marginLeft:-21, marginTop:12 }}variant="standard" label="Age" size="normal" />
+        <TextField required sx={{marginLeft:-20, marginTop:20 }}variant="standard" label="Email ID" size="normal" type='email' />
+        <TextField required sx={{marginLeft:-19, marginTop:27 }}variant="standard" label="Phone No" size="normal"  />
         <Typography sx={{marginLeft:-20, marginTop:5}}>Blood Type requested/donating :</Typography>
         <TextField required sx={{marginLeft:35, marginTop:-6 }}variant="standard" label="Blood type" size="normal" />
 
@@ -56,7 +65,7 @@ const Request = () => {
     <Typography sx={{marginLeft:-21, marginTop:4}}>No: of units of blood required, if receiver:</Typography>
     <TextField sx={{marginLeft:46, marginTop:-5 }}variant="standard" label="Units of Blood" size="small" />
         
-        
+    </center>  
       
       </CardContent>
       <CardActions>
