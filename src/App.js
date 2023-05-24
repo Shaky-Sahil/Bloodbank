@@ -15,6 +15,7 @@ import {
 import Error from './components/Error'
 import Manageuser from './components/Manageuser'
 import Request from './components/Request'
+import Terms from './components/Terms'
 
 
 const App = () => {
@@ -30,7 +31,7 @@ const App = () => {
       <Route path='/request' element={<Request/>}></Route>       
       <Route path='/manage/user' element={<Manageuser/>}></Route>   
       <Route path='/admin/addDonor' element={<Adddonor/>}></Route>   
-      
+      <Route path='/terms'element={<Terms />}></Route>
       
       </Routes>
       </BrowserRouter>
