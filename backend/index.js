@@ -1,7 +1,9 @@
 const express = require('express')
 require('dotenv').config()
 const userData = require("./model/userDB")
+const donorData = require('./model/DonorDB')
 const requestData = require("./model/RequestDB")
+const verfiedRequest = require('./model/Verifiedrequest')
 const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
 const jwt = require('jsonwebtoken')
@@ -46,7 +48,7 @@ app.get('/requests', async (req,res)=>{
   res.json(result)
 })
 
-app.post('request/new',async (req,res)=>{
+app.post('/request/new',async (req,res)=>{
   let request = new requestData(req.body)
  request.save()
 
@@ -54,11 +56,47 @@ app.post('request/new',async (req,res)=>{
 })
 
 
-app.post('user/new',async (req,res)=>{
+app.post('/user/new',async (req,res)=>{
     let user = new userData(req.body)
    user.save()
    res.send(req.body)
 })
+
+app.post('/request/new',async (req,res)=>{
+  let request = new verfiedRequest(req.body)
+ request.save()
+ res.send(req.body)
+})
+
+app.post('/user/delete',async (req,res)=>{
+  await userData.findByIdAndDelete(req.body._id)
+  res.send("user deleted")
+
+})
+
+app.post('/request/delete',async (req,res)=>{
+  await requestData.findByIdAndDelete(req.body._id)
+  res.send("request deleted")
+})
+
+app.post('/verified/request/delete',async (req,res)=>{
+  await verfiedRequest.findByIdAndDelete(req.body._id)
+  res.send("request deleted")
+})
+
+app.get('/donors', async (req,res)=>{
+  let result = await donorData.find()
+  console.log("data fetched")
+  console.log(result)
+  res.json(result)
+})
+
+app.post('/donor/new',async (req,res)=>{
+  let user = new userData(req.body)
+ user.save()
+ res.send(req.body)
+})
+
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
