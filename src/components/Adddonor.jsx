@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "./Adddonor.css";
 import { Button, Container, TextField, Typography } from '@mui/material';
+import { useForm } from 'react-hook-form';
 
 function Adddonor() {
   const [name, setName] = useState('');
@@ -8,24 +9,10 @@ function Adddonor() {
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [bloodType, setBloodType] = useState('');
+  const {register, handleSubmit} = useForm()
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    const donorData = { name, age, email, phoneNumber, bloodType };
-
-    // Send donor data to the backend API using the fetch API
-    fetch('/api/donors', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(donorData)
-    }).then(() => {
-      // Reset form fields after successful submission
-      setName('');
-      setAge('');
-      setEmail('');
-      setPhoneNumber('');
-      setBloodType('');
-    });
+  const donorAdd = event => {
+    axios.post()
   };
 
   return (
@@ -41,11 +28,13 @@ function Adddonor() {
       <Typography  variant='h4'>ADD DONORS</Typography>
       
       <br/>
-      <TextField className='cls2' label="Name" value={name} onChange={event => setName(event.target.value)} />
-      <TextField className='cls2' label="Age" value={age} onChange={event => setAge(event.target.value)} />
-      <TextField className='cls2' label="Email" value={email} onChange={event => setEmail(event.target.value)} />
-      <TextField className='cls2' label="Phone Number" value={phoneNumber} onChange={event => setPhoneNumber(event.target.value)} />
-      <TextField className='cls2' label="Blood" value={bloodType} onChange={event => setBloodType(event.target.value)} />
+      <TextField className='cls2' label="Name" value={name} 
+      {...register()}
+      />
+      <TextField className='cls2' label="Age" value={age}  />
+      <TextField className='cls2' label="Email" value={email}  />
+      <TextField className='cls2' label="Phone Number" value={phoneNumber}  />
+      <TextField className='cls2' label="Blood" value={bloodType}  />
       <br/>
 <Button className='cls3' style={{backgroundColor:'crimson'}} type="submit">Add Donor</Button>
 </center>
