@@ -15,6 +15,6 @@ var DonorSchema = new  Schema({
     isAdmin:Boolean
 });
 //4.Set up collections
-DonorInfo = mongoose.model("user",userSchema)
+DonorInfo = mongoose.model("Donors",DonorSchema)
 //5.Exporting
 module.exports=DonorInfo;

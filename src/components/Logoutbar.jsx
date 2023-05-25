@@ -24,6 +24,13 @@ export default function Logoutbar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Blood Bank Management System
           </Typography>
+          <Button 
+          onClick={()=>{navigate('/request')}}
+          variant="contained"
+          color='warning'
+          sx={{ bgcolor: '#b71c1c',marginRight:2 }}>
+            Make Request
+          </Button>
           <Button onClick={()=>{
             localStorage.removeItem("authenticated")
             localStorage.removeItem("token")

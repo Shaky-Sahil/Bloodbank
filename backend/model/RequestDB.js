@@ -11,6 +11,7 @@ var requestSchema = new  Schema({
     requestPhone:Number,
     requestBlood:String,
     requestAilment:String,
+    requestCategory:String,
     requestUnit:Number
 });
 //4.Set up collections

@@ -14,6 +14,6 @@ var verifiedrequestSchema = new  Schema({
     requestUnit:Number
 });
 //4.Set up collections
-VerRequestInfo = mongoose.model("request",verifiedrequestSchema)
+VerRequestInfo = mongoose.model("verifiedrequest",verifiedrequestSchema)
 //5.Exporting
 module.exports=VerRequestInfo;

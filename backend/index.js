@@ -51,8 +51,7 @@ app.get('/requests', async (req,res)=>{
 app.post('/request/new',async (req,res)=>{
   let request = new requestData(req.body)
  request.save()
-
- res.send(req.body)
+ res.send(`reques boyd is ${req.body}`)
 })
 
 
@@ -62,7 +61,7 @@ app.post('/user/new',async (req,res)=>{
    res.send(req.body)
 })
 
-app.post('/request/new',async (req,res)=>{
+app.post('verified/request/new',async (req,res)=>{
   let request = new verfiedRequest(req.body)
  request.save()
  res.send(req.body)
