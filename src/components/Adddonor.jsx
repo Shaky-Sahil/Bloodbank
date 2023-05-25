@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "./Adddonor.css";
 import { Button, Container, TextField, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
 function Adddonor() {
   const [name, setName] = useState('');
@@ -11,8 +12,10 @@ function Adddonor() {
   const [bloodType, setBloodType] = useState('');
   const {register, handleSubmit} = useForm()
 
-  const donorAdd = event => {
-    axios.post()
+  const donorAdd = (data) => {
+    axios.post('http://localhost:5000/donor/new',data).then((res)=>{
+      console.log(res)
+    })
   };
 
   return (
@@ -28,15 +31,19 @@ function Adddonor() {
       <Typography  variant='h4'>ADD DONORS</Typography>
       
       <br/>
-      <TextField className='cls2' label="Name" value={name} 
-      {...register()}
+      <TextField className='cls2' label="Name" name='userName'
+      {...register('userName')}
       />
-      <TextField className='cls2' label="Age" value={age}  />
-      <TextField className='cls2' label="Email" value={email}  />
-      <TextField className='cls2' label="Phone Number" value={phoneNumber}  />
-      <TextField className='cls2' label="Blood" value={bloodType}  />
+      <TextField className='cls2' label="Age" name='userAge'
+      {...register('userAge')}/>
+      <TextField className='cls2' label="Email" name='userEmail'
+      {...register('userEmail')}/>
+      <TextField className='cls2' label="Phone Number" name='userPhone'
+      {...register('userPhone')}/>
+      <TextField className='cls2' label="Blood" name='bloodGroup'
+      {...register('bloodGroup')}/>
       <br/>
-<Button className='cls3' style={{backgroundColor:'crimson'}} type="submit">Add Donor</Button>
+<Button className='cls3' style={{backgroundColor:'crimson'}} type="submit" onClick={handleSubmit(donorAdd)}>Add Donor</Button>
 </center>
 </Container>
 </form>

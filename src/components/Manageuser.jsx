@@ -46,7 +46,6 @@ const Manageuser = () => {
                     <Grid item xs={4} key={i}>
                     <Card sx={{bgcolor: '#ffebee',borderRadius:4,margin:1}}>
                         <CardContent>
-                            <Avatar alt='avatar' src={user.avatar} sx={{ bgcolor: '#b71c1c',width:75,height:75}}>{user.userfName[0]}</Avatar>
                             <Typography>Name:{user.userfName} {user.userlName}</Typography>
                             <Typography>Age:{user.userAge}</Typography>
                             <Typography>Gender:{user.userGender}</Typography>

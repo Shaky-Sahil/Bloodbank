@@ -5,10 +5,10 @@ mongoose.connect("mongodb+srv://sahil:sahil@cluster0.n5jhj4v.mongodb.net/?retryW
 //Schema Creation
 const Schema = mongoose.Schema;
 var DonorSchema = new  Schema({
-    userfName:String,
-    userlName:String,
+    userName:String,
     userGender:String,
     userAge:Number,
+    userPhone:Number,
     bloodGroup:String,
     userEmail:String,
     userPassword:String,

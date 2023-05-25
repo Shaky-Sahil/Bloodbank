@@ -91,8 +91,8 @@ app.get('/donors', async (req,res)=>{
 })
 
 app.post('/donor/new',async (req,res)=>{
-  let user = new userData(req.body)
- user.save()
+  let donor = new donorData(req.body)
+ donor.save()
  res.send(req.body)
 })
 
