@@ -10,7 +10,7 @@ var requestSchema = new  Schema({
     requestEmail:String,
     requestPhone:Number,
     requestBlood:String,
-    requestAilment:String,
+    requestAilment:{type:String,default:'None'},
     requestCategory:String,
     requestUnit:Number
 });
