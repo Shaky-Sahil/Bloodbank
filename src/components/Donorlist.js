@@ -7,6 +7,7 @@ import Nav from './Nav.js';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Logoutbar from './Logoutbar.jsx';
+import EmailIcon from '@mui/icons-material/Email';
 import axios from 'axios';
 
 const Donorlist = () => {
@@ -54,16 +55,12 @@ const Donorlist = () => {
                             <Typography>Gender:{user.userGender}</Typography>
                             <Typography>Email:{user.userEmail}</Typography>
                             <Button 
-                            className='btn'
-                            onClick={()=>{navigate("/request",{
-                                state: {
-                                    user:{user}
-                                },
-                            })}} 
+                            className='btn' 
                             sx={{ width: 150, height: 25,bgcolor: '#b71c1c' }} 
                             variant='contained' 
                             color='warning'>
-                                request
+                                <EmailIcon/>
+                                <a href={`mailto:${user.userEmail}?subject=Blood donation`}>Mail</a>
                              </Button>
                         </CardContent>
                     </Card>

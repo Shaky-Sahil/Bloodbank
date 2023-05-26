@@ -54,7 +54,9 @@ const Manageuser = () => {
                             className='btn' 
                             sx={{ width: 150, height: 25,bgcolor: '#b71c1c' }} 
                             variant='contained' 
-                            color='warning'>
+                            color='warning'
+                            onClick={()=>{navigate('/user/update')}}
+                            >
                                 Update
                              </Button>
                              <Button 

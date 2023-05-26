@@ -57,6 +57,7 @@ else{
                         <Typography>Blood:{req.requestBlood}</Typography>
                         <Typography>Units:{req.requestUnit}</Typography>
                         <Typography>Email:{req.requestEmail}</Typography>
+                        <Typography>Phone:{req.requestPhone}</Typography>
                         <Button 
                         className='btn'
                         sx={{ width: 150, height: 25,bgcolor: '#b71c1c' }} 
