@@ -9,6 +9,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Logoutbar from './Logoutbar.jsx';
 import { Toaster, toast } from 'react-hot-toast';
+import Adminnav from './Adminnav.jsx';
 
 const Manageuser = () => {
      const [authenticated, setauthenticated] = useState(null);
@@ -42,7 +43,7 @@ const Manageuser = () => {
     else{
         return (
             <div className='cont'>
-                <Logoutbar/>
+                <Adminnav/>
                 {console.log(users)}
                 <Grid container>
                 {users.map((user,i)=>(

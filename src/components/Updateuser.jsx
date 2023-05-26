@@ -5,10 +5,11 @@ import { useForm } from 'react-hook-form';
 import { Toaster, toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
-
+import { useNavigate } from 'react-router-dom';
 
 const Updateuser = () => {
   const {register, handleSubmit} = useForm()
+  const navigate = useNavigate()
   const location = useLocation();
   console.log('location',location)
   const user = location.state.user
@@ -19,6 +20,7 @@ const Updateuser = () => {
     axios.post('http://localhost:5000/verified/request/update',data).then((res)=>{
         console.log(res)
         toast.success("Updated user")
+        navigate('/manage/user')
     })
 
   }

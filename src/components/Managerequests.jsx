@@ -11,6 +11,7 @@ import axios from 'axios';
 import './requestlist.css'
 import SendIcon from '@mui/icons-material/Send';
 import { Toaster, toast } from 'react-hot-toast';
+import Adminnav from './Adminnav.jsx';
 
 const Managerequests = () => {
     const [requests,setRequests] = useState([])
@@ -77,7 +78,7 @@ else if(requests===null){
 else{
     return (
         <div className='cont'>
-            <Logoutbar/>
+            <Adminnav/>
             <center>
             <Typography variant='h3'>Requests</Typography>
             </center>

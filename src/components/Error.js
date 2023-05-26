@@ -4,12 +4,13 @@ import { Breadcrumbs, Card, CardContent, Grid, Typography } from '@mui/material'
 import { Logout } from '@mui/icons-material'
 import Logoutbar from './Logoutbar'
 import { useNavigate } from 'react-router-dom'
+import Adminnav from './Adminnav'
 
 const Error = () => {
   const navigate = useNavigate()
   return (
     <div className='error'>
-                <Logoutbar/>
+                <Adminnav/>
                 <Typography sx={{display:'grid',placeContent:'center'}} variant='h4'>Admin</Typography>
                 <Grid container>
                     <Grid item xs={4}>

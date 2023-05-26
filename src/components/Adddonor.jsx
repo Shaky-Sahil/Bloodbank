@@ -3,6 +3,9 @@ import "./Adddonor.css";
 import { Button, Container, TextField, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { Toaster, toast } from 'react-hot-toast';
+import Adminnav from './Adminnav';
 
 function Adddonor() {
   const [name, setName] = useState('');
@@ -11,15 +14,21 @@ function Adddonor() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [bloodType, setBloodType] = useState('');
   const {register, handleSubmit} = useForm()
-
+  const navigate = useNavigate()
   const donorAdd = (data) => {
-    axios.post('http://localhost:5000/donor/new',data).then((res)=>{
+    axios.post('http://localhost:5000/verified/request/new',data).then((res)=>{
       console.log(res)
+      toast.success("Donor Added")
+      setTimeout(() => {
+        navigate('/error')
+      }, 1000);
+     
     })
   };
 
   return (
     <div className='cls4'>
+      <Adminnav/>
     <form onSubmit={handleSubmit} className='cls1'>
     <br/>
     <br/>
@@ -31,22 +40,25 @@ function Adddonor() {
       <Typography  variant='h4'>ADD DONORS</Typography>
       
       <br/>
-      <TextField className='cls2' label="Name" name='userName'
-      {...register('userName')}
+      <TextField className='cls2' label="Name" name='requestName'
+      {...register('requestName')}
       />
-      <TextField className='cls2' label="Age" name='userAge'
-      {...register('userAge')}/>
-      <TextField className='cls2' label="Email" name='userEmail'
-      {...register('userEmail')}/>
-      <TextField className='cls2' label="Phone Number" name='userPhone'
-      {...register('userPhone')}/>
-      <TextField className='cls2' label="Blood" name='bloodGroup'
-      {...register('bloodGroup')}/>
+      <TextField className='cls2' label="Age" name='requestAge'
+      {...register('requestAge')}/>
+      <TextField className='cls2' label="Email" name='requestEmail'
+      {...register('requestEmail')}/>
+      <TextField className='cls2' label="Phone Number" name='requestPhone'
+      {...register('requestPhone')}/>
+      <TextField className='cls2' label="Blood" name='requestBlood'
+      {...register('requestBlood')}/>
+       <TextField className='cls2' label="Ailment" name='requestAilment'
+      {...register('requestAilment')} defaultValue={'None'}/>
       <br/>
 <Button className='cls3' style={{backgroundColor:'crimson'}} type="submit" onClick={handleSubmit(donorAdd)}>Add Donor</Button>
 </center>
 </Container>
 </form>
+<Toaster/>
 </div>
 );
 }
