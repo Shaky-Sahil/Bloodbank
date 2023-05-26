@@ -17,7 +17,7 @@ const Donorlist = () => {
     useEffect(()=>{
         const loggedInUser = localStorage.getItem("authenticated");
         setauthenticated(loggedInUser)
-        axios.get('http://localhost:5000/users').then((response)=>{
+        axios.get('http://localhost:5000/verified/requests').then((response)=>{
             console.log(response.data)
             setUsers(response.data)
         })
@@ -49,11 +49,12 @@ const Donorlist = () => {
                     <Grid item xs={4} key={i}>
                     <Card sx={{bgcolor: '#ffebee',borderRadius:4,margin:1}}>
                         <CardContent>
-                            <Avatar alt='avatar' src={user.avatar} sx={{ bgcolor: '#b71c1c',width:75,height:75}}>{user.userfName[0]}</Avatar>
-                            <Typography>Name:{user.userfName} {user.userlName}</Typography>
-                            <Typography>Age:{user.userAge}</Typography>
-                            <Typography>Gender:{user.userGender}</Typography>
-                            <Typography>Email:{user.userEmail}</Typography>
+                            <Avatar alt='avatar' src={user.avatar} sx={{ bgcolor: '#b71c1c',width:75,height:75}}>{user.requestName[0]}</Avatar>
+                            <Typography>Name:{user.requestName}</Typography>
+                            <Typography>Age:{user.requestAge}</Typography>
+                            <Typography>Phone:{user.requestPhone}</Typography>
+                            <Typography>Email:{user.requestEmail}</Typography>
+                            <Typography>Ailments:{user.requestAilment}</Typography>
                             <Button 
                             className='btn' 
                             sx={{ width: 150, height: 25,bgcolor: '#b71c1c' }} 

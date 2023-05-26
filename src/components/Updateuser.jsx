@@ -1,13 +1,25 @@
 import { Box, Button, Grid, MenuItem, TextField, Typography } from '@mui/material'
+import axios from 'axios';
 import React from 'react'
 import { useForm } from 'react-hook-form';
-import { Toaster } from 'react-hot-toast';
+import { Toaster, toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom'
 
 
 const Updateuser = () => {
   const {register, handleSubmit} = useForm()
-  const handleUpdate = () => {
+  const location = useLocation();
+  console.log('location',location)
+  const user = location.state.user
+  console.log(user.userfName)
+  const handleUpdate = (data) => {
+    data = {...data,_id:user._id}
+    console.log(`request data is: ${data._id}`)
+    axios.post('http://localhost:5000/verified/request/update',data).then((res)=>{
+        console.log(res)
+        toast.success("Updated user")
+    })
 
   }
   return (
@@ -22,34 +34,38 @@ const Updateuser = () => {
               <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
-                  name="userfName"
+                  name="requestName"
                   required
                   fullWidth
-                  id="firstName"
-                  label="First Name"
+                  id="Name"
+                  label="Name"
                   autoFocus
-                  {...register("userfName")}
+                  {...register("requestName")}
+                  defaultValue={user.requestName}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="userlName"
+                  id="Age"
+                  label="Age"
+                  name="requestAge"
                   autoComplete="family-name"
-                  {...register("userlName")}
+                  {...register("requestAge")}
+                  defaultValue={user.requestAge}
+
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
               <TextField
                     select
                     fullWidth
-                    id='gender'
-                    label='Gender'
-                    name='gender'
-                    {...register('gender')}
+                    id='email'
+                    label='Email'
+                    name='requestEmail'
+                    {...register('requestEmail')}
+                    defaultValue={user.requestEmail}
                   >
                     <MenuItem value='male'>Male</MenuItem>
                     <MenuItem value='female'>Female</MenuItem>
@@ -58,35 +74,32 @@ const Updateuser = () => {
                 </Grid>
                    <Grid item xs={12} sm={6}>
                 <TextField
-                  required='>18'
                   fullWidth
-                  id="Age"
-                  label="Age"
-                  name="Age"
-                  {...register("userAge")}
+                  id="phone"
+                  label="Phone"
+                  name="requestPhone"
+                  {...register("requestPhone")}
+                  defaultValue={user.requestPhone}
                 />
               </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
+              <Grid item xs={12} sm={6}>
+              <TextField
                   fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                  {...register("userEmail")}
+                  id="Blood"
+                  label="Blood Group"
+                  name="requestBlood"
+                  {...register("requestBlood")}
+                  defaultValue={user.requestBlood}
                 />
               </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
+              <Grid item xs={12} sm={6}>
+              <TextField
                   fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
-                  {...register("userPassword")}
+                  id="ailment"
+                  label="Ailment"
+                  name="requestAilment"
+                  {...register("requestAilment")}
+                  defaultValue={user.requestAilment}
                 />
               </Grid>
       
@@ -99,16 +112,9 @@ const Updateuser = () => {
               color='error'
               onClick={handleSubmit(handleUpdate)}
             >
-              Sign Up
+              Update
             </Button>
             <Toaster/>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                <Link to={'/Login'}href="#" variant="body2">
-                  Already have an account? Login
-                </Link>
-              </Grid>
-            </Grid>
            
           </Box>
     </div>

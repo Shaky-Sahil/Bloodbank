@@ -15,14 +15,14 @@ const Error = () => {
                     <Grid item xs={4}>
                     <Card sx={{bgcolor: '#ffebee',borderRadius:4,margin:1}} className='crd' onClick={()=>{navigate('/manage/user')}}>
                         <CardContent>
-                           <Typography>Manage users</Typography>
+                           <Typography>Manage Donors</Typography>
                         </CardContent>
                     </Card>
                     </Grid>
                     <Grid item xs={4}>
-                    <Card sx={{bgcolor: '#ffebee',borderRadius:4,margin:1}} className='crd'>
+                    <Card sx={{bgcolor: '#ffebee',borderRadius:4,margin:1}} className='crd' onClick={()=>{navigate('/manage/requests')}}>
                         <CardContent>
-                           <Typography>Manage requests</Typography>
+                           <Typography>Manage Donor Requests</Typography>
                         </CardContent>
                     </Card>
                     </Grid>

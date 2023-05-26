@@ -19,6 +19,7 @@ import Terms from './components/Terms'
 import Requestlist from './components/Requestlist'
 import Userdashboard from './components/Userdashboard'
 import Updateuser from './components/Updateuser'
+import Managerequests from './components/Managerequests'
 
 
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
       <Route path='/view/requests'element={<Requestlist/>}></Route>
       <Route path='/view/donors'element={<Donorlist/>}></Route>
       <Route path='/user/update'element={<Updateuser/>}></Route>
+      <Route path='/manage/requests' element={<Managerequests/>}></Route>   
       
       </Routes>
       </BrowserRouter>

@@ -3,9 +3,10 @@ import {  Box, Button, Card, CardActions, CardContent, Container, MenuItem, Text
 import React from 'react'
 import { Select } from '@mui/material';
 import { Opacity } from '@mui/icons-material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import { Toaster, toast } from 'react-hot-toast';
 
 
 
@@ -14,10 +15,13 @@ import axios from 'axios';
 const Request = () => {
 
   const {register,handleSubmit} = useForm();
-
+  const navigate = useNavigate();
   const makeRequest = (data) =>{
     axios.post('http://localhost:5000/request/new',data).then(()=>{
-      alert('request successfully made')
+      toast.success("request made")
+      setTimeout(() => {
+        navigate('/dashboard')
+      }, 1000);
     })
   }
         
@@ -84,7 +88,7 @@ const Request = () => {
     <Typography sx={{marginLeft:-32, marginTop:-5}}>Request Category :</Typography>
     <Typography sx={{marginLeft:-32, marginTop:6}}>Pre-defined ailments, if any :</Typography>
     <TextField sx={{marginLeft:35, marginTop:-3}}   name="requestAilment"
-    {...register("requestAilment")} />
+    {...register("requestAilment")} defaultValue='none'/>
     <Typography sx={{marginLeft:-21, marginTop:4}}>No: of units of blood required, if receiver:</Typography>
     <TextField sx={{marginLeft:46, marginTop:-5 }}variant="standard" label="Units of Blood" size="small" 
     name="requestUnit"
@@ -102,7 +106,7 @@ const Request = () => {
     </Card>
     {/* </Box> */}
     </Container>
-    
+    <Toaster/>
     </div>
   )
 }

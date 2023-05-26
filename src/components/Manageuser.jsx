@@ -8,13 +8,14 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Logoutbar from './Logoutbar.jsx';
+import { Toaster, toast } from 'react-hot-toast';
 
 const Manageuser = () => {
      const [authenticated, setauthenticated] = useState(null);
     const [users,setUsers] = useState([])
     const navigate = useNavigate()
     useEffect(()=>{
-        axios.get('http://localhost:5000/users').then((response)=>{
+        axios.get('http://localhost:5000/verified/requests').then((response)=>{
             console.log(response.data)
             setUsers(response.data)
         })
@@ -24,8 +25,10 @@ const Manageuser = () => {
 
     const deleteUser = (id) => {
         const data ={_id : id};
-        axios.post('http://localhost:5000/user/delete',data).then(()=>{
-            alert('user deleted')
+        axios.post('http://localhost:5000/verified/request/delete',data).then(()=>{
+            toast.success("user deleted")
+            let value = users.filter((u)=>(u._id!==id))
+            setUsers(value)
         })
     }
 
@@ -46,16 +49,21 @@ const Manageuser = () => {
                     <Grid item xs={4} key={i}>
                     <Card sx={{bgcolor: '#ffebee',borderRadius:4,margin:1}}>
                         <CardContent>
-                            <Typography>Name:{user.userfName} {user.userlName}</Typography>
-                            <Typography>Age:{user.userAge}</Typography>
-                            <Typography>Gender:{user.userGender}</Typography>
-                            <Typography>Email:{user.userEmail}</Typography>
+                            <Typography>Name:{user.requestName}</Typography>
+                            <Typography>Age:{user.requestAge}</Typography>
+                            <Typography>Phone:{user.requestPhone}</Typography>
+                            <Typography>Email:{user.requestEmail}</Typography>
+                            <Typography>Ailments:{user.requestAilment}</Typography>
                             <Button 
                             className='btn' 
                             sx={{ width: 150, height: 25,bgcolor: '#b71c1c' }} 
                             variant='contained' 
                             color='warning'
-                            onClick={()=>{navigate('/user/update')}}
+                            onClick={()=>{navigate('/user/update',{
+                                state: {
+                                    user
+                                }
+                            })}}
                             >
                                 Update
                              </Button>
@@ -74,6 +82,7 @@ const Manageuser = () => {
                 )
                 )}
                 </Grid>
+                <Toaster/>
             </div>
           )
     }
