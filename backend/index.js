@@ -113,13 +113,20 @@ app.post('/user/new',async (req,res)=>{
 app.post('/verified/request/new',async (req,res)=>{
   console.log(`ver req bod ${req.body}`)
   let request = new verfiedRequest(req.body)
+  transporter.sendMail({
+    from: "sahilpk81@gmail.com", // verified sender email
+    to: "sahilpk81@gmail.com", // recipient email
+    subject: "Test message subject", // Subject line
+    text: "Hi,your donation request to Circulate Blood Bank has been Approved", // plain text body
+  }, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
  request.save()
- transporter.sendMail(mailOptions, function (err, info) {
-  if(err)
-    console.log(err)
-  else
-    console.log(info);
-})
+ 
  res.send(req.body)
 })
 
