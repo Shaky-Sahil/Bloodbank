@@ -6,7 +6,7 @@ import BloodtypeIcon from '@mui/icons-material/Bloodtype';
 import './Nav.css'
 import { useNavigate } from 'react-router-dom';
 import { Person, PersonAdd } from '@mui/icons-material';
-export default function Logoutbar() {
+export default function Adminnav() {
     const navigate = useNavigate()
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -25,11 +25,11 @@ export default function Logoutbar() {
             Blood Bank Management System
           </Typography>
           <Button 
-          onClick={()=>{navigate('/request')}}
+          onClick={()=>{navigate('/error')}}
           variant="contained"
           color='warning'
           sx={{ bgcolor: '#b71c1c',marginRight:2 }}>
-            Make Request
+            Admin Dash
           </Button>
           <Button onClick={()=>{
             localStorage.removeItem("authenticated")

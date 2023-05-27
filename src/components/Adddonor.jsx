@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import "./Adddonor.css";
 import { Button, Container, TextField, Typography } from '@mui/material';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { Toaster, toast } from 'react-hot-toast';
+import Adminnav from './Adminnav';
 
 function Adddonor() {
   const [name, setName] = useState('');
@@ -8,28 +13,22 @@ function Adddonor() {
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [bloodType, setBloodType] = useState('');
-
-  const handleSubmit = event => {
-    event.preventDefault();
-    const donorData = { name, age, email, phoneNumber, bloodType };
-
-    // Send donor data to the backend API using the fetch API
-    fetch('/api/donors', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(donorData)
-    }).then(() => {
-      // Reset form fields after successful submission
-      setName('');
-      setAge('');
-      setEmail('');
-      setPhoneNumber('');
-      setBloodType('');
-    });
+  const {register, handleSubmit} = useForm()
+  const navigate = useNavigate()
+  const donorAdd = (data) => {
+    axios.post('http://localhost:5000/verified/request/new',data).then((res)=>{
+      console.log(res)
+      toast.success("Donor Added")
+      setTimeout(() => {
+        navigate('/error')
+      }, 1000);
+     
+    })
   };
 
   return (
     <div className='cls4'>
+      <Adminnav/>
     <form onSubmit={handleSubmit} className='cls1'>
     <br/>
     <br/>
@@ -41,16 +40,25 @@ function Adddonor() {
       <Typography  variant='h4'>ADD DONORS</Typography>
       
       <br/>
-      <TextField className='cls2' label="Name" value={name} onChange={event => setName(event.target.value)} />
-      <TextField className='cls2' label="Age" value={age} onChange={event => setAge(event.target.value)} />
-      <TextField className='cls2' label="Email" value={email} onChange={event => setEmail(event.target.value)} />
-      <TextField className='cls2' label="Phone Number" value={phoneNumber} onChange={event => setPhoneNumber(event.target.value)} />
-      <TextField className='cls2' label="Blood" value={bloodType} onChange={event => setBloodType(event.target.value)} />
+      <TextField className='cls2' label="Name" name='requestName'
+      {...register('requestName')}
+      />
+      <TextField className='cls2' label="Age" name='requestAge'
+      {...register('requestAge')}/>
+      <TextField className='cls2' label="Email" name='requestEmail'
+      {...register('requestEmail')}/>
+      <TextField className='cls2' label="Phone Number" name='requestPhone'
+      {...register('requestPhone')}/>
+      <TextField className='cls2' label="Blood" name='requestBlood'
+      {...register('requestBlood')}/>
+       <TextField className='cls2' label="Ailment" name='requestAilment'
+      {...register('requestAilment')} defaultValue={'None'}/>
       <br/>
-<Button className='cls3' style={{backgroundColor:'crimson'}} type="submit">Add Donor</Button>
+<Button className='cls3' style={{backgroundColor:'crimson'}} type="submit" onClick={handleSubmit(donorAdd)}>Add Donor</Button>
 </center>
 </Container>
 </form>
+<Toaster/>
 </div>
 );
 }

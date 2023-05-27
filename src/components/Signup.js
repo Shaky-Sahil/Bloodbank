@@ -24,6 +24,7 @@ const theme = createTheme();
   const handleSignup = (data) => {
     axios.post('http://localhost:5000/api/users',data).then((response)=>{
       console.log(response)
+      alert("sign up successfull")
       navigate("/Login");
     }).catch(()=>{
       toast.error('Invalid Data');
@@ -83,8 +84,8 @@ const theme = createTheme();
                     fullWidth
                     id='gender'
                     label='Gender'
-                    name='gender'
-                    {...register('gender')}
+                    name='userGender'
+                    {...register('userGender')}
                   >
                     <MenuItem value='male'>Male</MenuItem>
                     <MenuItem value='female'>Female</MenuItem>

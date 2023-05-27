@@ -4,17 +4,16 @@ const mongoose = require("mongoose");
 mongoose.connect("mongodb+srv://sahil:sahil@cluster0.n5jhj4v.mongodb.net/?retryWrites=true&w=majority")
 //Schema Creation
 const Schema = mongoose.Schema;
-var requestSchema = new  Schema({
+var verifiedrequestSchema = new  Schema({
     requestName:String,
     requestAge:Number,
     requestEmail:String,
     requestPhone:Number,
     requestBlood:String,
-    requestAilment:{type:String,default:'None'},
-    requestCategory:String,
+    requestAilment:String,
     requestUnit:Number
 });
 //4.Set up collections
-RequestInfo = mongoose.model("request",requestSchema)
+VerRequestInfo = mongoose.model("verifiedrequest",verifiedrequestSchema)
 //5.Exporting
-module.exports=RequestInfo;
+module.exports=VerRequestInfo;
