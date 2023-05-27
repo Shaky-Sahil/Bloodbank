@@ -15,6 +15,7 @@ function Adddonor() {
   const [bloodType, setBloodType] = useState('');
   const {register, handleSubmit} = useForm()
   const navigate = useNavigate()
+  const bloodTypes = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
   const donorAdd = (data) => {
     axios.post('http://localhost:5000/verified/request/new',data).then((res)=>{
       console.log(res)
@@ -49,8 +50,19 @@ function Adddonor() {
       {...register('requestEmail')}/>
       <TextField className='cls2' label="Phone Number" name='requestPhone'
       {...register('requestPhone')}/>
-      <TextField className='cls2' label="Blood" name='requestBlood'
-      {...register('requestBlood')}/>
+       <TextField
+          select
+          className='cls2'
+          label='Blood'
+          name='requestBlood'
+          {...register('requestBlood')}
+        >
+          {bloodTypes.map((type) => (
+            <MenuItem key={type} value={type}>
+              {type}
+            </MenuItem>
+          ))}
+        </TextField>
        <TextField className='cls2' label="Ailment" name='requestAilment'
       {...register('requestAilment')} defaultValue={'None'}/>
       <br/>
